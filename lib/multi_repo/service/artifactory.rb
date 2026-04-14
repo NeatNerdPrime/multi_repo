@@ -40,6 +40,18 @@ module MultiRepo::Service
       request(:get, path, **kwargs)
     end
 
+    def head(path, **kwargs)
+      path = path.to_s
+      request(:head, path, **kwargs)
+    end
+
+    def exists?(path, **kwargs)
+      head(path, **kwargs)
+      true
+    rescue RestClient::NotFound
+      false
+    end
+
     def list(folder, cache: @cache, **kwargs)
       folder = folder.to_s
       cache_file = "/tmp/artifactory-#{folder.tr("/", "_")}-#{Date.today}.txt"
@@ -94,6 +106,8 @@ module MultiRepo::Service
         "Accept"       => "application/json",
         "Content-Type" => "application/json"
       )
+      headers = headers.except("Accept") if verb == :head
+
       path = File.join(self.class.api_endpoint, path)
 
       puts "+ #{verb.to_s.upcase} #{path}".light_black if verbose
