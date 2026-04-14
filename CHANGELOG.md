@@ -4,6 +4,21 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 
+## [1.2.0] - 2026-04-14
+### Added
+- [Artifactory service] Add head and exists? methods [[#97](https://github.com/ManageIQ/multi_repo/pull/97)]
+- [pull_request_blaster_outer] Add ability to override message in the script [[#70](https://github.com/ManageIQ/multi_repo/pull/70)]
+- [pull_request_blaster_outer] Add ability to specify a different fork name [[#71](https://github.com/ManageIQ/multi_repo/pull/71)]
+- [show_org_repos] Add options include_forks and include_archived [[#73](https://github.com/ManageIQ/multi_repo/pull/73)]
+
+### Fixed
+- [Git service] Handle when tags move during a git fetch which would otherwise fail [[#75](https://github.com/ManageIQ/multi_repo/pull/75)]
+- [each_repo] Fix each_repo when the script needs to bundle [[#72](https://github.com/ManageIQ/multi_repo/pull/72)]
+- [delete_labels] Fix a constant problem [[#67](https://github.com/ManageIQ/multi_repo/pull/67)]
+
+### Removed
+- **BREAKING** Drop CodeClimate [[#74](https://github.com/ManageIQ/multi_repo/pull/74)]
+
 ## [1.1.0] - 2025-10-01
 ### Added
 - [show_commit_history] Add pr-changelog display format [[#49](https://github.com/ManageIQ/multi_repo/pull/49)]
@@ -60,7 +75,8 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 - [show_commit_history] Prevent missing ranges from failing the entire run [[#20](https://github.com/ManageIQ/multi_repo/pull/20)]
 - [pull_request_merger] Fixing issue passing kwargs on Ruby 3 [[#23](https://github.com/ManageIQ/multi_repo/pull/23)]
 
-[Unreleased]: https://github.com/ManageIQ/multi_repo/compare/v1.1.0...HEAD
+[Unreleased]: https://github.com/ManageIQ/multi_repo/compare/v1.2.0...HEAD
+[1.2.0]: https://github.com/ManageIQ/multi_repo/compare/v1.1.0...v1.2.0
 [1.1.0]: https://github.com/ManageIQ/multi_repo/compare/v1.0.0...v1.1.0
 [1.0.0]: https://github.com/ManageIQ/multi_repo/compare/v0.6.0...v1.0.0
 [0.6.0]: https://github.com/ManageIQ/multi_repo/compare/v0.5.1...v0.6.0
